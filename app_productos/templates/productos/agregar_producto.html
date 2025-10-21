@@ -1,0 +1,28 @@
+{% extends 'productos/base.html' %}
+
+{% block title %}Agregar Producto{% endblock %}
+
+{% block content %}
+    <h1>Agregar Nuevo Producto</h1>
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="id_nombre">Nombre del Producto:</label>
+        <input type="text" id="id_nombre" name="nombre" required>
+
+        <label for="id_categoria">Categoría:</label>
+        <input type="text" id="id_categoria" name="categoria" required>
+
+        <label for="id_precio">Precio:</label>
+        <input type="number" id="id_precio" name="precio" step="0.01" min="0" required>
+
+        <label for="id_descripcion">Descripción:</label>
+        <textarea id="id_descripcion" name="descripcion"></textarea>
+
+        <label for="id_existencias">Existencias:</label>
+        <input type="number" id="id_existencias" name="existencias" min="0" required>
+
+        <button type="submit" class="btn btn-success">Guardar Producto</button>
+        <a href="{% url 'listar_productos' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}
