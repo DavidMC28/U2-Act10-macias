@@ -3,8 +3,10 @@
 {% block title %}Listado de Productos{% endblock %}
 
 {% block content %}
-    <h1>Listado de Productos</h1>
-    <a href="{% url 'agregar_producto' %}" class="btn btn-primary">Agregar Nuevo Producto</a>
+    <h1><i class="fas fa-list"></i> Listado de Productos</h1>
+    <a href="{% url 'agregar_producto' %}" class="btn btn-primary">
+        <i class="fas fa-plus-circle"></i> Agregar Nuevo Producto
+    </a>
 
     {% if productos %}
         <table>
@@ -26,9 +28,13 @@
                     <td>${{ producto.precio }}</td>
                     <td>{{ producto.descripcion|default:"Sin descripción"|truncatewords:10 }}</td>
                     <td>{{ producto.existencias }}</td>
-                    <td>
-                        <a href="{% url 'editar_producto' producto.id %}" class="btn btn-warning">Editar</a>
-                        <a href="{% url 'eliminar_producto' producto.id %}" class="btn btn-danger">Eliminar</a>
+                    <td class="actions">
+                        <a href="{% url 'editar_producto' producto.id %}" class="btn btn-warning">
+                            <i class="fas fa-edit"></i> Editar
+                        </a>
+                        <a href="{% url 'eliminar_producto' producto.id %}" class="btn btn-danger">
+                            <i class="fas fa-trash"></i> Eliminar
+                        </a>
                     </td>
                 </tr>
                 {% endfor %}

@@ -3,13 +3,19 @@
 {% block title %}Confirmar Eliminación{% endblock %}
 
 {% block content %}
-    <h1>¿Estás seguro de eliminar el producto "{{ producto.nombre }}"?</h1>
+    <h1><i class="fas fa-exclamation-triangle"></i> ¿Estás seguro de eliminar el producto "{{ producto.nombre }}"?</h1>
 
-    <p>Esta acción es irreversible.</p>
+    <p><i class="fas fa-info-circle"></i> Esta acción es irreversible.</p>
 
     <form method="post">
         {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Sí, Eliminar</button>
-        <a href="{% url 'listar_productos' %}" class="btn btn-secondary">Cancelar</a>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-danger">
+                <i class="fas fa-trash"></i> Sí, Eliminar
+            </button>
+            <a href="{% url 'listar_productos' %}" class="btn btn-secondary">
+                <i class="fas fa-times"></i> Cancelar
+            </a>
+        </div>
     </form>
 {% endblock %}
